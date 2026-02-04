@@ -21,7 +21,12 @@ export class KanbanBoard {
             colDiv.className = `kanban-column col-${colId}`;
 
             const title = document.createElement('h3');
-            title.textContent = colId.replace(/([A-Z])/g, ' $1').trim();
+            const titles: Record<string, string> = {
+                'nextUp': 'À Faire',
+                'inProgress': 'En Chantier',
+                'done': 'Terminé'
+            };
+            title.textContent = titles[colId] || colId;
             colDiv.appendChild(title);
 
             tasks.forEach((task: any) => {

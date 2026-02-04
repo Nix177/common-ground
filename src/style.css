@@ -308,3 +308,126 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
+/* Showcase */
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.showcase-card {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.showcase-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.card-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.6));
+}
+
+.card-badges {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.sponsor-badge {
+    background: #fbbf24;
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin: 0 0 0.5rem;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text);
+}
+
+.card-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 1rem;
+}
+
+.impact-metric {
+    font-weight: 700;
+    color: var(--accent-green, #10b981);
+    font-size: 0.9rem;
+}
+
+.btn-discover {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.85rem;
+}
+
+.btn-discover:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-invite {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    border: 1px solid var(--primary-glow);
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.btn-invite:hover {
+    background: var(--primary);
+    color: white;
+}

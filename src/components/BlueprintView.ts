@@ -1,29 +1,34 @@
 export class BlueprintView {
-    constructor(private containerId: string, private data: any) { }
+  constructor(private containerId: string, private data: any) { }
 
-    render() {
-        const container = document.getElementById(this.containerId);
-        if (!container) return;
+  render() {
+    const container = document.getElementById(this.containerId);
+    if (!container) return;
 
-        container.innerHTML = `
+    container.innerHTML = `
       <div class="blueprint-summary">
-        <p><strong>Mission:</strong> ${this.data.mission}</p>
+        <p class="mission-statement"><strong>Mission :</strong> ${this.data.mission}</p>
         <div class="blueprint-details">
           <div class="detail-group">
-            <h4>Contrat Moral</h4>
+            <h4>Le Contrat Moral</h4>
             <ul>
-              <li>Durée: ${this.data.moral_contract.duration_months} mois</li>
-              <li>Intensité: ${this.data.moral_contract.intensity}</li>
+              <li>Durée : ${this.data.moral_contract.duration_months} mois</li>
+              <li>Rythme : ${this.data.moral_contract.intensity}</li>
             </ul>
           </div>
           <div class="detail-group">
-            <h4>Stack Technique</h4>
+            <h4>L'Équipe (Besoin Vital)</h4>
             <ul class="stack-list">
               ${this.data.stack_requirements.map((req: any) => `
                 <li class="req-item ${req.status}">
-                  <span class="role">${req.role}</span>
-                  <span class="skills">${req.skills.join(', ')}</span>
-                  <span class="status-badge ${req.status}">${req.status}</span>
+                  <div class="req-info">
+                    <span class="role">${req.role}</span>
+                    <span class="skills">${req.skills.join(', ')}</span>
+                  </div>
+                  <div class="req-actions">
+                    <span class="status-badge ${req.status}">${req.status === 'open' ? 'Manquant' : 'Pourvu'}</span>
+                    ${req.status === 'open' ? '<button class="btn-invite">Inviter +</button>' : ''}
+                  </div>
                 </li>
               `).join('')}
             </ul>
@@ -31,5 +36,5 @@ export class BlueprintView {
         </div>
       </div>
     `;
-    }
+  }
 }
