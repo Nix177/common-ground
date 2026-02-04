@@ -1,0 +1,14 @@
+{
+  "project_id": "potager-urbain-bercy",
+  "mission": "Créer un jardin partagé de 50m2 en permaculture",
+  "moral_contract": {
+    "duration_months": 3,
+    "intensity": "low",
+    "milestones": ["Obtention permis", "Premier semis", "Récolte"]
+  },
+  "stack_requirements": [
+    {"role": "Lead", "status": "filled", "skills": ["manage", "gardening"]},
+    {"role": "Logistique (Camionnette)", "status": "open", "skills": ["transport"]}
+  ],
+  "governance": "sociocracy_lite"
+}
