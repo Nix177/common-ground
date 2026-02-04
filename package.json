@@ -1,0 +1,25 @@
+{
+  "name": "common-ground",
+  "version": "1.0.0",
+  "description": "Plateforme de construction collaborative de projets de loisirs et d'intérêt local.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "collaboration",
+    "project-management",
+    "local",
+    "hobby"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^7.3.1"
+  }
+}
