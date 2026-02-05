@@ -8,29 +8,42 @@ import { MatcherSimulator } from './components/MatcherSimulator'
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <header>
     <h1>Common Ground</h1>
-    <p class="subtitle">Le Github des Passions</p>
+    <p class="subtitle">Le GitHub des Passions</p>
+    <div style="margin-top: 2rem;">
+      <button style="padding: 12px 24px; background: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; color: var(--primary);">Commencer un projet</button>
+    </div>
   </header>
   
   <main>
     <section id="blueprint-section">
-      <h2>Project Blueprint</h2>
-      <div id="blueprint-content" class="card"></div>
+      <div class="card">
+        <h2>Project Blueprint</h2>
+        <div id="blueprint-content"></div>
+      </div>
     </section>
 
     <section id="kanban-section">
-      <h2>Micro Kanban</h2>
-      <div id="kanban-board" class="kanban-board">
-        <!-- Components will be injected here -->
+      <div class="card" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+        <h2 style="padding-left: 0; border: none;">Micro Kanban</h2>
+        <div id="kanban-board" class="kanban-board">
+          <!-- Components will be injected here -->
+        </div>
       </div>
     </section>
 
     <section id="matcher-section">
-      <h2>Availability Matcher</h2>
-      <div class="card" id="matcher-container">
-        <!-- Components will be injected here -->
+      <div class="card">
+        <h2>Availability Matcher</h2>
+        <div id="matcher-container">
+          <!-- Components will be injected here -->
+        </div>
       </div>
     </section>
   </main>
+    
+  <footer style="text-align: center; margin-top: 4rem; opacity: 0.5; font-size: 0.8rem;">
+    <p>&copy; 2024 Common Ground. Built for the future.</p>
+  </footer>
 `
 
 // 1. Initialize & Render Blueprint

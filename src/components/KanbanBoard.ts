@@ -21,19 +21,34 @@ export class KanbanBoard {
             colDiv.className = `kanban-column col-${colId}`;
 
             const title = document.createElement('h3');
-            title.textContent = colId.replace(/([A-Z])/g, ' $1').trim();
+            title.innerHTML = `${colId.replace(/([A-Z])/g, ' $1').trim()} <span style="opacity:0.4; font-size:0.8em; margin-left:8px;">${tasks.length}</span>`;
             colDiv.appendChild(title);
 
             tasks.forEach((task: KanbanTask) => {
                 const taskCard = document.createElement('div');
                 taskCard.className = 'task-card';
+                // Mock avatar color based on assignee name length
+                const avatarColor = task.assignee ? `hsl(${task.assignee.length * 40}, 70%, 60%)` : '#cbd5e1';
+                const initials = task.assignee ? task.assignee.substring(0, 2).toUpperCase() : '??';
+
                 taskCard.innerHTML = `
             <div class="task-header">
                 <strong>${task.title}</strong>
-                <small>${task.assignee || 'Unassigned'}</small>
             </div>
-            <div class="task-actions">
-                ${this.createMoveButtons(colId)}
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 1rem;">
+                <div title="Assignee: ${task.assignee}" style="
+                    width: 24px; height: 24px; 
+                    background: ${avatarColor}; 
+                    border-radius: 50%; 
+                    color: white;
+                    font-size: 10px; 
+                    display: flex; align-items: center; justify-content: center;
+                    font-weight: bold;
+                ">${initials}</div>
+                
+                <div class="task-actions">
+                    ${this.createMoveButtons(colId)}
+                </div>
             </div>
         `;
 
