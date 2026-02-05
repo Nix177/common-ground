@@ -4,6 +4,7 @@ import blueprint from './ProjectBlueprint.json'
 import { BlueprintView } from './components/BlueprintView'
 import { KanbanBoard } from './components/KanbanBoard'
 import { MatcherSimulator } from './components/MatcherSimulator'
+import { ActivityFeed } from './components/ActivityFeed'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <header>
@@ -39,6 +40,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
       </div>
     </section>
+
+    <section id="activity-section">
+        <div class="card">
+           <div id="activity-feed"></div>
+        </div>
+    </section>
   </main>
     
   <footer style="text-align: center; margin-top: 4rem; opacity: 0.5; font-size: 0.8rem;">
@@ -53,9 +60,15 @@ blueprintView.render();
 // 2. Initialize & Render Kanban
 const kanban = new MicroKanban();
 // Initial Data
-kanban.addTask({ id: 1, title: 'Créer le design system', assignee: 'Alice' }, 'nextUp');
-kanban.addTask({ id: 2, title: 'Définir les rôles', assignee: 'Bob' }, 'inProgress');
-kanban.addTask({ id: 3, title: 'Initialiser le repo', assignee: 'Charlie' }, 'done');
+// Initial Data
+kanban.addTask({ id: 1, title: 'Valider les statuts asso', assignee: 'Marie C.' }, 'done');
+kanban.addTask({ id: 2, title: 'Achat terreau (200L)', assignee: 'Thomas B.' }, 'done');
+kanban.addTask({ id: 3, title: 'Design des plans des bacs', assignee: 'Lucas V.' }, 'inProgress');
+kanban.addTask({ id: 4, title: 'Contacter la Mairie (permis)', assignee: 'Sarah L.' }, 'inProgress');
+kanban.addTask({ id: 5, title: 'Récupérer palettes bois', assignee: 'Marc D.' }, 'nextUp');
+kanban.addTask({ id: 6, title: 'Créer page Instagram', assignee: 'Elise' }, 'nextUp');
+kanban.addTask({ id: 7, title: 'Budget prévisionnel Q2', assignee: 'Karim' }, 'nextUp');
+kanban.addTask({ id: 8, title: 'Organiser apéro lancement', assignee: undefined }, 'nextUp');
 
 const kanbanBoard = new KanbanBoard('kanban-board', kanban, () => {
   kanbanBoard.render(); // Re-render on update
@@ -65,3 +78,7 @@ kanbanBoard.render();
 // 3. Initialize & Render Matcher Simulator
 const matcherSim = new MatcherSimulator('matcher-container');
 matcherSim.render();
+
+// 4. Initialize & Render Activity Feed
+const activityFeed = new ActivityFeed('activity-feed');
+activityFeed.render();

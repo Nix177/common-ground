@@ -1,18 +1,23 @@
 {
   "project_id": "potager-urbain-bercy",
-  "mission": "Créer un jardin partagé de 50m2 en permaculture",
+  "mission": "Notre objectif est de transformer le toit du gymnase de Bercy en un écosystème nourricier de 500m². Nous voulons prouver que la ville peut produire une partie de son alimentation tout en recréant du lien social. Ce n'est pas juste du jardinage, c'est un acte de résilience climatique et de convivialité de quartier.",
   "moral_contract": {
-    "duration_months": 3,
-    "intensity": "low",
+    "duration_months": 6,
+    "intensity": "medium",
     "milestones": [
-      "Obtention permis",
-      "Premier semis",
-      "Récolte"
+      "Obtention du permis A.T. (Occupation Temporaire)",
+      "Construction des bacs de culture (40 unités)",
+      "Atelier Semis & Plantation Avril",
+      "Premier Festival des Récoltes"
     ]
   },
   "stack_requirements": [
-    {"role": "Lead", "status": "filled", "skills": ["manage", "gardening"]},
-    {"role": "Logistique (Camionnette)", "status": "open", "skills": ["transport"]}
+    {"role": "Chef de Projet", "status": "filled", "skills": ["gestion", "leadership"]},
+    {"role": "Expert Permaculture", "status": "filled", "skills": ["jardinage", "biologie"]},
+    {"role": "Logistique (Camionnette)", "status": "open", "skills": ["transport", "permis_b"]},
+    {"role": "Comptable / Trésorier", "status": "open", "skills": ["finance", "excel"]},
+    {"role": "Community Manager", "status": "open", "skills": ["communication", "réseaux_sociaux"]},
+    {"role": "Bricoleurs (Construction Bacs)", "status": "open", "skills": ["bricolage", "outillage"]}
   ],
   "governance": "sociocracy_lite"
 }
