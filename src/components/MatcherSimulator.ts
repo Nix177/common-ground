@@ -1,4 +1,4 @@
-import { AvailabilityMatcher, User, Task } from '../AvailabilityMatcher.js';
+import { AvailabilityMatcher, User, Task } from '../AvailabilityMatcher';
 
 export class MatcherSimulator {
     private matcher = new AvailabilityMatcher();

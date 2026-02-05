@@ -1,4 +1,15 @@
+export interface KanbanTask {
+    id: number | string;
+    title: string;
+    assignee?: string;
+    [key: string]: any;
+}
+
+export type KanbanColumn = 'nextUp' | 'inProgress' | 'done';
+
 export class MicroKanban {
+    private columns: Record<string, KanbanTask[]>;
+
     constructor() {
         this.columns = {
             nextUp: [],
@@ -7,13 +18,15 @@ export class MicroKanban {
         };
     }
 
-    addTask(task, column = 'nextUp') {
+    addTask(task: KanbanTask, column: KanbanColumn = 'nextUp') {
         if (this.columns[column]) {
             this.columns[column].push(task);
         }
     }
 
-    moveTask(task, fromColumn, toColumn) {
+    moveTask(task: KanbanTask, fromColumn: KanbanColumn, toColumn: KanbanColumn) {
+        if (!this.columns[fromColumn] || !this.columns[toColumn]) return;
+
         const index = this.columns[fromColumn].indexOf(task);
         if (index > -1) {
             this.columns[fromColumn].splice(index, 1);
@@ -25,8 +38,3 @@ export class MicroKanban {
         return this.columns;
     }
 }
-
-// Example usage
-// const board = new MicroKanban();
-// board.addTask({ id: 1, title: 'Buy seeds' }, 'nextUp');
-// console.log(board.getBoard());

@@ -27,7 +27,7 @@ export class AvailabilityMatcher {
     return intersection.length / tSkills.length;
   }
 
-  private calculateTimeIntersection(vTime: number[], tTime: number[]): number {
+  private calculateTimeIntersection(_vTime: number[], _tTime: number[]): number {
     // Simplified intersection logic
     // Just returning a dummy 1.0 for perfect match simulation
     return 1.0;

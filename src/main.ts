@@ -1,5 +1,5 @@
 import './style.css'
-import { MicroKanban } from './MicroKanban.js'
+import { MicroKanban } from './MicroKanban'
 import blueprint from './ProjectBlueprint.json'
 import { BlueprintView } from './components/BlueprintView'
 import { KanbanBoard } from './components/KanbanBoard'

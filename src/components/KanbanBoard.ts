@@ -1,4 +1,4 @@
-import { MicroKanban } from '../MicroKanban.js';
+import { MicroKanban, KanbanColumn, KanbanTask } from '../MicroKanban';
 
 export class KanbanBoard {
     constructor(
@@ -13,7 +13,7 @@ export class KanbanBoard {
 
         container.innerHTML = ''; // Clear current
         const columns = this.kanban.getBoard();
-        const columnOrder = ['nextUp', 'inProgress', 'done'];
+        const columnOrder: KanbanColumn[] = ['nextUp', 'inProgress', 'done'];
 
         columnOrder.forEach((colId) => {
             const tasks = columns[colId] || []; // Safely get tasks
@@ -24,7 +24,7 @@ export class KanbanBoard {
             title.textContent = colId.replace(/([A-Z])/g, ' $1').trim();
             colDiv.appendChild(title);
 
-            tasks.forEach((task: any) => {
+            tasks.forEach((task: KanbanTask) => {
                 const taskCard = document.createElement('div');
                 taskCard.className = 'task-card';
                 taskCard.innerHTML = `
@@ -33,7 +33,7 @@ export class KanbanBoard {
                 <small>${task.assignee || 'Unassigned'}</small>
             </div>
             <div class="task-actions">
-                ${this.createMoveButtons(task, colId)}
+                ${this.createMoveButtons(colId)}
             </div>
         `;
 
@@ -59,7 +59,7 @@ export class KanbanBoard {
         });
     }
 
-    private createMoveButtons(task: any, currentCol: string): string {
+    private createMoveButtons(currentCol: KanbanColumn): string {
         let buttons = '';
         if (currentCol === 'inProgress' || currentCol === 'done') {
             buttons += `<button class="btn-prev" title="Move back">←</button>`;
@@ -70,8 +70,8 @@ export class KanbanBoard {
         return buttons;
     }
 
-    private moveTask(task: any, currentCol: string, direction: 'next' | 'prev') {
-        const order = ['nextUp', 'inProgress', 'done'];
+    private moveTask(task: KanbanTask, currentCol: KanbanColumn, direction: 'next' | 'prev') {
+        const order: KanbanColumn[] = ['nextUp', 'inProgress', 'done'];
         const currentIndex = order.indexOf(currentCol);
         let targetIndex = currentIndex;
 
